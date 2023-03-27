@@ -135,7 +135,7 @@ def train(
     )
     model = get_peft_model(model, config)
 
-    data = load_dataset("json", data_files=data_path)
+    data = load_dataset("json", data_files=data_path.split(","))
 
     if val_set_size > 0:
         train_val = data["train"].train_test_split(
